@@ -1,7 +1,10 @@
+let mensajes=[]
+
 function mostrarMensaje(repetir) {
     let i = 0;
     while (i < repetir) {
         console.log("Hola, " + nombre + "!");
+        mensajes.push(mensaje);
         i++;}
 }
 let nombre = prompt("¿Cuál es tu nombre?");
@@ -27,3 +30,4 @@ if (esMayorDeEdad) {
 mostrarMensaje(3);
 
 console.log("Es mayor de edad: " + esMayorDeEdad);
+console.log(mensajes);
