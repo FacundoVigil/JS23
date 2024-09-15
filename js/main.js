@@ -1,33 +1,25 @@
-let mensajes=[]
+function Persona(nombre, edad)
+{this.nombre = nombre;
+this.edad = edad}
 
-function mostrarMensaje(repetir) {
-    let i = 0;
-    while (i < repetir) {
-        console.log("Hola, " + nombre + "!");
-        mensajes.push(mensaje);
-        i++;}
-}
-let nombre = prompt("¿Cuál es tu nombre?");
-alert("Hola, " + nombre + "!");
+let personas=[]
 
-let edad = prompt("¿Cuántos años tenes?");
-let esMayorDeEdad = edad >= 18;
+Persona.agregar= function(nombre,edad)
+{let persona= new Persona(nombre,edad);
+    personas.push(persona);
+    console.log("Persona agregada:", persona);
+};
 
-if (edad >= 18) {
-    alert("Eres mayor de edad");
-} else if (edad >= 13 && edad < 18) {
-    alert("Eres adolescente");
-} else {
-    alert("Eres menor de edad");
-}
+Persona.obtenerTodas= function()
+{console.log("Personas:", personas);
+return personas;};
 
-if (esMayorDeEdad) {
-    alert("Tenes acceso a contenido exclusivo para mayores de edad");
-} else {
-    alert("No tenes acceso a contenido exclusivo para mayores de edad");
-}
+Persona.obtenerPorNombre= function(nombre)
+{let personaEncontrada= personas.find(persona=>persona.nombre === nombre);
+console.log("Persona encontrada:", personaEncontrada);
+return personaEncontrada;};
 
-mostrarMensaje(3);
-
-console.log("Es mayor de edad: " + esMayorDeEdad);
-console.log(mensajes);
+Persona.filtrarPorEdad= function(edad)
+{let personasFiltradas= personas.filter(persona=>persona.edad>=edad);
+console.log("Personas filtradas:", personasFiltradas);
+return personasFiltradas;};
